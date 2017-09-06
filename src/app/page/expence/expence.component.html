@@ -1,0 +1,66 @@
+<div class="app">
+
+  <div class="view" *ngIf="currentView.name === 'value'">
+    <div class="view-hero">
+      <b>Nuova Uscita</b>
+      <small>Registra una nuova spesa indicando il valore di uscita</small>
+    </div>
+
+    <h2 class="expence-value">{{value}} &euro;</h2>
+
+    <div class="numpad">
+      <div class="buttons">
+        <div (tap)="digit(1)">1</div>
+        <div (tap)="digit(2)">2</div>
+        <div (tap)="digit(3)">3</div>
+      </div>
+
+      <div class="buttons">
+        <div (tap)="digit(4)">4</div>
+        <div (tap)="digit(5)">5</div>
+        <div (tap)="digit(6)">6</div>
+      </div>
+
+      <div class="buttons">
+        <div (tap)="digit(7)">7</div>
+        <div (tap)="digit(8)">8</div>
+        <div (tap)="digit(9)">9</div>
+      </div>
+
+      <div class="buttons">
+        <div (tap)="digitDot()">.</div>
+        <div (tap)="digit(0)">0</div>
+        <div (tap)="clearDigit()">C</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="view" *ngIf="currentView.name === 'tags'">
+    <div class="view-hero">
+      <b>Tags</b>
+      <small>Inserisci i tag da associare all'uscita</small>
+    </div>
+
+    <form #form="ngForm" (ngSubmit)="addTag(tag)">
+      <input type="text" id="tag" name="tag" #tag class="expence-tag" tabindex="1">
+    </form>
+
+    <ul>
+      <li *ngFor="let tag of tags">{{tag.name}}</li>
+    </ul>
+  </div>
+
+  <div class="view" *ngIf="currentView.name === 'done'">
+    <h1>Brao hai salvato l'uscita</h1>
+  </div>
+
+  <footer class="footer footer-expence footer-fixed ">
+    <div (tap)="navigateToDashboard()" class="btn"
+        [class.btn-transparent]="currentView.cancel.transparent"
+        [class.btn-full-width]="currentView.isLast">{{currentView.cancel.label}}</div>
+
+    <div *ngIf="currentView.saveButton && !currentView.isLast" (tap)="save()" class="btn">Salva</div>
+    <div *ngIf="!currentView.saveButton && !currentView.isLast" (tap)="showSection(currentView.nextView)" class="btn">{{currentView.btnNextLabel}}</div>
+  </footer>
+</div>

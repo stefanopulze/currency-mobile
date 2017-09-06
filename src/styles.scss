@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/colors.scss';
+@import 'styles/reset.scss';
+@import 'styles/size.scss';
+@import 'styles/button.scss';
+@import 'styles/input.scss';
+@import 'styles/table.scss';
+@import 'styles/form.scss';
+@import 'styles/footer.scss';
+
+body {
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  height: 100vh;
+}
+
+app-login {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  background: url('assets/landing/landing-login.jpg') center no-repeat;
+  background-size: cover;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  flex-flow: column;
+  overflow: hidden;
+
+  .toolbar {
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+    &-btn {
+      padding: 0 20px;
+    }
+  }
+
+  .toolbar-right {
+    justify-content: flex-end;
+  }
+
+}
+
+.view {
+  flex: 1;
+  overflow-y: auto;
+  background-color: $viewBackground;
+
+  &.padding {
+    padding: 20px;
+  }
+
+}
+
+.view-hero {
+  margin-top: 40px;
+  padding: 0 20px;
+
+  small {
+    color: #999;
+    display: block;
+  }
+}
+

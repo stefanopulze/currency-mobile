@@ -1,0 +1,40 @@
+@import "~styles/colors";
+
+$buttonSize: 70px;
+
+.expence-value {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 300;
+  margin: 20px 0 40px;
+}
+
+.expence-tag {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px 20px;
+  font-size: 1.4em;
+  border: none;
+}
+
+.numpad {
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+
+    > div {
+      background: $greenColor;
+      border-radius: 50px;
+      height: $buttonSize;
+      width: $buttonSize;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      color: #fff;
+    }
+  }
+}
